@@ -1,0 +1,26 @@
+[
+    {
+      "name": "John Doe",
+      "email": "jdoe@smu.edu",
+      "title": "Master of Science in Computer Science",
+      "type": "Student"
+    },
+    {
+      "name": "Rami Sharp",
+      "email": "rsharp@smu.edu",
+      "title": "Department of Computer Science",
+      "type": "Teacher"
+    },
+    {
+      "name": "Rayn Sam",
+      "email": "rsam@smu.edu",
+      "title": "Master of Science in Computer Science",
+      "type": "Student"
+    },
+    {
+      "name": "Javis Woon",
+      "email": "jwoon@smu.edu",
+      "title": "Department of Computer Science",
+      "type": "Teacher"
+    }
+  ]

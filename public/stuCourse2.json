@@ -1,0 +1,27 @@
+[
+    {
+        "className": "CS7315 - Operating Systems",
+        "teacherName": "Travis Howard",
+        "announcement": "Dear students, Lab 1 grades are posted, please contact your teammate who submitted the assignment f"
+    },
+    {
+        "className": "CS7344 - Machine Learning",
+        "teacherName": "Cindy Baker",
+        "announcement": "Dear students, Quiz 1 is available and the deadline is 13 Feb. Please look at Home --> Module 2 -->  Qu"
+    },
+    {
+        "className": "CS7316 - Software Engineering",
+        "teacherName": "Michales Brust",
+        "announcement": "Dear all, I have additional office hours today from 11 am to 1 pm through Zoom. Please feel free to get h"
+    },
+    {
+        "className": "CS7316 - Computer Networks",
+        "teacherName": "Held Moon",
+        "announcement": "I have posted solution for all three homework assignments on PSLMS. Homework 1_solution.docx Home"
+    },
+    {
+        "className": "CS7332 - Data Science",
+        "teacherName": "Javis Woon",
+        "announcement": "There is some information missing in the Programming 1 assignment. For the round-robin priority algorith.."
+    }
+]
