@@ -3,6 +3,7 @@
 ## TODO:
 - [ ] Slides
 - [ ] Presentation Video Link:
+- [ ] Modify the Readme
 
 ## Team members:
 Xiaoqing Zou , Daniel Christopher Sujana, Haoyang Guo
