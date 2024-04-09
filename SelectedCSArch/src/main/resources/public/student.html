@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/checkout/">
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="form-validation.css" rel="stylesheet">
+    <style>
+        .my-custom-scrollbar {
+            position: relative;
+            height: 200px;
+            overflow: auto;
+        }
+
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            width: 400px;
+            margin: 20px 20px 20px 0px;
+        }
+        .search-box {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .search-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+<nav class="navbar navbar-expand bg-info navbar-dark bg-primary" style="background-color: #64B2A5!important;">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    </ul>
+    <div class="">
+        <h2 style="color: white">Student</h2>
+    </div>
+
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    </ul>
+    <ul class="nav navbar-nav my-2 my-lg-0">
+        <li class="nav-item"><a class="nav-link"
+                                style="color:white"><i class="fas fa-sign-in-alt"></i>
+            Logout</a></li>
+    </ul>
+</nav>
+
+<div class="row" id="body-row">
+
+    <div class="col py-3">
+
+        <div class="row py-5">
+            <div class="col-md-1 order-md-2"></div>
+            <div class="col-md-10 order-md-2">
+                <div class="mb-5 mt-5">
+                    <div class="search-container">
+                        <input type="text" id="studentInput" placeholder="Student Id" class="search-box">
+                        <button type="button" class="search-button" style='margin-left: 5%' onclick="displayDetails()">Search</button>
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <h3 class="">Courses</h3>
+                    <br/>
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 350px;">
+                        <table id="categorytable" class="table table-bordered">
+                            <thead>
+                            <tr style="background-color: #64B2A5;color: white;">
+                                <th scope="col">Course ID</th>
+                                <th scope="col">Course Name</th>
+                                <th scope="col">Professor</th>
+                                <th scope="col">Grade</th>
+                                <th scope="col">Assignment</th>
+                                <th scope="col">Assignment Due Date</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody id="data">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 order-md-2"></div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="submissionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom: none">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                Assignment Submitted Successfully
+            </div>
+            <div class="modal-footer" style="border-top: none">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<title>ISAMS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.standalone.min.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+    function displayDetails(){
+        fetch("http://localhost:8080/studentLogin/"+document.getElementById('studentInput').value).then(
+            res => {
+                res.json().then(
+                    data => {
+                        console.log("data" + data);
+                        var temp = "";
+                        data.forEach((itemData) => {
+                            itemData.assignment.forEach((assignment) => {
+                                temp += "<tr >";
+                                temp += "<td id='courseId'>" + assignment.courseId + "</td>";
+                                temp += "<td id='courseName'>" + itemData.title + "</td>";
+                                temp += "<td id='professor'>" + itemData.professor.name + "</td>";
+                                if (itemData.grades.length > 0) {
+                                    temp += "<td id='grade'>" + itemData.grades[0].letterGrade + "</td>";
+                                } else {
+                                    temp += "<td id='grade'>" + +"</td>";
+                                }
+                                temp += "<td id='assignment'>" + assignment.title + "</td>";
+                                temp += "<td id='assignmentDate'>" + assignment.dueDate + "</td>";
+                                temp += "<td id='submission'><button type=\"button\" onclick=\"insertSubmission(this)\">Submit</button></td></tr>";
+                            });
+                        });
+                        document.getElementById('data').innerHTML = temp;
+                    }
+                )
+            }
+        )
+    }
+
+    function insertSubmission(button) {
+        var tr = button.parentNode.parentNode;
+        var value = tr.querySelector('td:first-child').textContent;
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = ('0' + (today.getMonth() + 1)).slice(-2);
+        var day = ('0' + today.getDate()).slice(-2);
+
+        const data = {
+            "assignmentId": value,
+            "studentId": document.getElementById('studentInput').value,
+            "submissionDate": year + '-' + month + '-' + day
+        };
+
+        const options = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        };
+
+        fetch('http://localhost:8080/insertSubmission', options)
+            .then(response => {
+                if (response.ok) {
+                    $('#submissionModal').modal('show');
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .catch(error => {
+                console.error('There was a problem with your fetch operation:', error);
+            });
+    }
+
+</script>
+
+</body>
+
+</html>

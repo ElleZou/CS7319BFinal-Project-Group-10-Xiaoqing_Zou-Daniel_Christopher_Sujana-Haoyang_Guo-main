@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/sujanad/SMU/Software Architecture/ISAMS</OriginalElement>
+  <nodes>
+    <node x="-893.5" y="558.5">com.academic.management.model.Student</node>
+    <node x="-1373.0" y="739.5">com.academic.management.AcademicManagementSystemApplication</node>
+    <node x="-999.5" y="2055.5">com.academic.management.controller.AcademicManagementController</node>
+    <node x="-1612.5" y="1555.5">com.academic.management.service.AcademicManagementService</node>
+    <node x="-1766.0" y="-165.5">com.academic.management.model.Assignment</node>
+    <node x="-1704.5" y="558.5">com.academic.management.model.Course</node>
+    <node x="-865.0" y="194.5">com.academic.management.model.Submission</node>
+    <node x="-720.5" y="1906.5">com.academic.management.model.Login</node>
+    <node x="-1786.5" y="218.5">com.academic.management.model.Grade</node>
+    <node x="-1561.5" y="1107.5">com.academic.management.repository.AcademicManagementDataOperations</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.academic.management.model.Course" target="com.academic.management.model.Grade" relationship="DEPENDENCY">
+      <point x="0.0" y="-225.5" />
+      <point x="-1587.0" y="524.0" />
+      <point x="-1727.0" y="524.0" />
+      <point x="-1727.0" y="464.0" />
+      <point x="-1707.0" y="464.0" />
+      <point x="0.0" y="105.5" />
+    </edge>
+    <edge source="com.academic.management.repository.AcademicManagementDataOperations" target="com.academic.management.model.Grade" relationship="DEPENDENCY">
+      <point x="0.0" y="-176.5" />
+      <point x="-1387.0" y="1084.0" />
+      <point x="-1407.0" y="1084.0" />
+      <point x="-1407.0" y="844.0" />
+      <point x="-1447.0" y="844.0" />
+      <point x="-1447.0" y="544.0" />
+      <point x="-1727.0" y="544.0" />
+      <point x="-1727.0" y="464.0" />
+      <point x="-1707.0" y="464.0" />
+      <point x="0.0" y="105.5" />
+    </edge>
+    <edge source="com.academic.management.service.AcademicManagementService" target="com.academic.management.model.Course" relationship="DEPENDENCY">
+      <point x="-72.75" y="-128.5" />
+      <point x="-1539.75" y="1524.0" />
+      <point x="-1547.0" y="1524.0" />
+      <point x="-1547.0" y="1484.0" />
+      <point x="-1587.0" y="1484.0" />
+      <point x="0.0" y="225.5" />
+    </edge>
+    <edge source="com.academic.management.service.AcademicManagementService" target="com.academic.management.repository.AcademicManagementDataOperations" relationship="TO_ONE">
+      <point x="72.75" y="-128.5" />
+      <point x="-1394.25" y="1524.0" />
+      <point x="-1387.0" y="1524.0" />
+      <point x="0.0" y="176.5" />
+    </edge>
+    <edge source="com.academic.management.service.AcademicManagementService" target="com.academic.management.model.Assignment" relationship="DEPENDENCY">
+      <point x="-72.75" y="-128.5" />
+      <point x="-1539.75" y="1524.0" />
+      <point x="-1547.0" y="1524.0" />
+      <point x="-1547.0" y="1484.0" />
+      <point x="-1807.0" y="1484.0" />
+      <point x="-1807.0" y="164.0" />
+      <point x="-1687.0" y="164.0" />
+      <point x="0.0" y="129.5" />
+    </edge>
+    <edge source="com.academic.management.controller.AcademicManagementController" target="com.academic.management.model.Assignment" relationship="DEPENDENCY">
+      <point x="76.25" y="-128.5" />
+      <point x="-770.75" y="2024.0" />
+      <point x="-767.0" y="2024.0" />
+      <point x="-767.0" y="1824.0" />
+      <point x="-567.0" y="1824.0" />
+      <point x="-567.0" y="164.0" />
+      <point x="-1687.0" y="164.0" />
+      <point x="0.0" y="129.5" />
+    </edge>
+    <edge source="com.academic.management.repository.AcademicManagementDataOperations" target="com.academic.management.model.Assignment" relationship="DEPENDENCY">
+      <point x="0.0" y="-176.5" />
+      <point x="-1387.0" y="1084.0" />
+      <point x="-1407.0" y="1084.0" />
+      <point x="-1407.0" y="164.0" />
+      <point x="-1687.0" y="164.0" />
+      <point x="0.0" y="129.5" />
+    </edge>
+    <edge source="com.academic.management.repository.AcademicManagementDataOperations" target="com.academic.management.model.Student" relationship="DEPENDENCY">
+      <point x="0.0" y="-176.5" />
+      <point x="-1387.0" y="1084.0" />
+      <point x="-1407.0" y="1084.0" />
+      <point x="-1407.0" y="1024.0" />
+      <point x="-767.0" y="1024.0" />
+      <point x="0.0" y="225.5" />
+    </edge>
+    <edge source="com.academic.management.model.Submission" target="com.academic.management.model.Assignment" relationship="DEPENDENCY">
+      <point x="0.0" y="-129.5" />
+      <point x="-767.0" y="164.0" />
+      <point x="-1687.0" y="164.0" />
+      <point x="0.0" y="129.5" />
+    </edge>
+    <edge source="com.academic.management.controller.AcademicManagementController" target="com.academic.management.model.Course" relationship="DEPENDENCY">
+      <point x="76.25" y="-128.5" />
+      <point x="-770.75" y="2024.0" />
+      <point x="-767.0" y="2024.0" />
+      <point x="-767.0" y="1824.0" />
+      <point x="-1647.0" y="1824.0" />
+      <point x="-1647.0" y="1264.0" />
+      <point x="-1587.0" y="1264.0" />
+      <point x="0.0" y="225.5" />
+    </edge>
+    <edge source="com.academic.management.repository.AcademicManagementDataOperations" target="com.academic.management.model.Course" relationship="DEPENDENCY">
+      <point x="0.0" y="-176.5" />
+      <point x="-1387.0" y="1084.0" />
+      <point x="-1407.0" y="1084.0" />
+      <point x="-1407.0" y="1044.0" />
+      <point x="-1587.0" y="1044.0" />
+      <point x="0.0" y="225.5" />
+    </edge>
+    <edge source="com.academic.management.model.Student" target="com.academic.management.model.Submission" relationship="DEPENDENCY">
+      <point x="0.0" y="-225.5" />
+      <point x="0.0" y="129.5" />
+    </edge>
+    <edge source="com.academic.management.repository.AcademicManagementDataOperations" target="com.academic.management.model.Submission" relationship="DEPENDENCY">
+      <point x="0.0" y="-176.5" />
+      <point x="-1387.0" y="1084.0" />
+      <point x="-1407.0" y="1084.0" />
+      <point x="-1407.0" y="844.0" />
+      <point x="-967.0" y="844.0" />
+      <point x="-967.0" y="544.0" />
+      <point x="-767.0" y="544.0" />
+      <point x="0.0" y="129.5" />
+    </edge>
+    <edge source="com.academic.management.controller.AcademicManagementController" target="com.academic.management.model.Student" relationship="DEPENDENCY">
+      <point x="76.25" y="-128.5" />
+      <point x="-770.75" y="2024.0" />
+      <point x="-767.0" y="2024.0" />
+      <point x="0.0" y="225.5" />
+    </edge>
+    <edge source="com.academic.management.model.Course" target="com.academic.management.model.Assignment" relationship="DEPENDENCY">
+      <point x="0.0" y="-225.5" />
+      <point x="-1587.0" y="164.0" />
+      <point x="-1687.0" y="164.0" />
+      <point x="0.0" y="129.5" />
+    </edge>
+    <edge source="com.academic.management.service.AcademicManagementService" target="com.academic.management.model.Grade" relationship="DEPENDENCY">
+      <point x="-72.75" y="-128.5" />
+      <point x="-1539.75" y="1524.0" />
+      <point x="-1547.0" y="1524.0" />
+      <point x="-1547.0" y="1484.0" />
+      <point x="-1727.0" y="1484.0" />
+      <point x="-1727.0" y="464.0" />
+      <point x="-1707.0" y="464.0" />
+      <point x="0.0" y="105.5" />
+    </edge>
+    <edge source="com.academic.management.controller.AcademicManagementController" target="com.academic.management.service.AcademicManagementService" relationship="TO_ONE">
+      <point x="-76.25" y="-128.5" />
+      <point x="-923.25" y="2024.0" />
+      <point x="-1467.0" y="2024.0" />
+      <point x="0.0" y="128.5" />
+    </edge>
+    <edge source="com.academic.management.service.AcademicManagementService" target="com.academic.management.model.Student" relationship="DEPENDENCY">
+      <point x="-72.75" y="-128.5" />
+      <point x="-1539.75" y="1524.0" />
+      <point x="-1547.0" y="1524.0" />
+      <point x="-1547.0" y="1484.0" />
+      <point x="-807.0" y="1484.0" />
+      <point x="-807.0" y="1264.0" />
+      <point x="-767.0" y="1264.0" />
+      <point x="0.0" y="225.5" />
+    </edge>
+    <edge source="com.academic.management.controller.AcademicManagementController" target="com.academic.management.model.Grade" relationship="DEPENDENCY">
+      <point x="76.25" y="-128.5" />
+      <point x="-770.75" y="2024.0" />
+      <point x="-767.0" y="2024.0" />
+      <point x="-767.0" y="1824.0" />
+      <point x="-1767.0" y="1824.0" />
+      <point x="-1767.0" y="544.0" />
+      <point x="-1727.0" y="544.0" />
+      <point x="-1727.0" y="464.0" />
+      <point x="-1707.0" y="464.0" />
+      <point x="0.0" y="105.5" />
+    </edge>
+    <edge source="com.academic.management.controller.AcademicManagementController" target="com.academic.management.model.Submission" relationship="DEPENDENCY">
+      <point x="76.25" y="-128.5" />
+      <point x="-770.75" y="2024.0" />
+      <point x="-767.0" y="2024.0" />
+      <point x="-767.0" y="1824.0" />
+      <point x="-607.0" y="1824.0" />
+      <point x="-607.0" y="544.0" />
+      <point x="-767.0" y="544.0" />
+      <point x="0.0" y="129.5" />
+    </edge>
+    <edge source="com.academic.management.service.AcademicManagementService" target="com.academic.management.model.Submission" relationship="DEPENDENCY">
+      <point x="-72.75" y="-128.5" />
+      <point x="-1539.75" y="1524.0" />
+      <point x="-1547.0" y="1524.0" />
+      <point x="-1547.0" y="1484.0" />
+      <point x="-927.0" y="1484.0" />
+      <point x="-927.0" y="544.0" />
+      <point x="-767.0" y="544.0" />
+      <point x="0.0" y="129.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.4573074908328968" showDependencies="true" x="-1187.0" y="1073.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

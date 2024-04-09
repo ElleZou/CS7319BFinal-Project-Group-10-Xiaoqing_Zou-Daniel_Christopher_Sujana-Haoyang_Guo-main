@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/checkout/">
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="form-validation.css" rel="stylesheet">
+    <style>
+        .my-custom-scrollbar {
+            position: relative;
+            height: 200px;
+            overflow: auto;
+        }
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            width: 400px;
+            margin: 20px 20px 20px 0px;
+        }
+        .search-box {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .search-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+<nav class="navbar navbar-expand bg-info navbar-dark bg-primary" style="background-color: #937E79!important;">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    </ul>
+    <div class="">
+        <h2 style="color: white" >Professor</h2>
+    </div>
+
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    </ul>
+    <ul class="nav navbar-nav my-2 my-lg-0">
+        <li class="nav-item"><a class="nav-link"
+                                style="color:white"><i class="fas fa-sign-in-alt"></i>
+            Logout</a></li>
+    </ul>
+</nav>
+
+<div class="row" id="body-row">
+    <div class="col py-3">
+        <div class="row py-5">
+            <div class="col-md-1 order-md-2"></div>
+            <div class="col-md-10 order-md-2">
+                <div class="mb-5 mt-5">
+                    <div class="search-container">
+                        <input type="text" id="profInput" placeholder="Professor Id" class="search-box">
+                        <button type="button" class="search-button" style="margin-left: 5%" onclick="displayDetails()">Search</button>
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <h3 class="">Students</h3>
+                    <br/>
+                    <!-- Table -->
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar" style="height: 350px;">
+                        <table id="categorytable" class="table table-bordered">
+                            <thead>
+                            <tr style="background-color: #937E79;color: white;">
+                                <th scope="col">Student ID</th>
+                                <th scope="col">Student Name</th>
+                                <th scope="col">Course ID</th>
+                                <th scope="col">Major</th>
+                                <th scope="col">Enrollment Year</th>
+                                <th scope="col">Grade</th>
+                                <th scope="col">Assignment</th>
+                                <th scope="col">Assignment Due Date</th>
+                                <th scope="col">Submission Date</th>
+                            </tr>
+                            </thead>
+                            <tbody id="data">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 order-md-2"></div>
+        </div>
+    </div>
+</div>
+<!-- Main Col END -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<title>ISAMS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.standalone.min.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+
+    function displayDetails(){
+        fetch("http://localhost:8080/professorLogin/"+document.getElementById('profInput').value).then(
+            res => {
+                res.json().then(
+                    data => {
+                        console.log("data" + data);
+                        var temp = "";
+                        data.forEach((itemData) => {
+                            itemData.submissionList.forEach((submission) => {
+                            temp += "<tr >";
+                            temp += "<td id='studentId'>" + itemData.studentId + "</td>";
+                            temp += "<td id='studentName'>" + itemData.firstName + "," + itemData.lastName + "</td>";
+                            temp += "<td id='courseId'>" + submission.assignment.courseId + "</td>";
+                            temp += "<td id='major'>" + itemData.major + "</td>";
+                            temp += "<td id='enrollmentYear'>" + itemData.enrollmentYear + "</td>";
+                            temp += "<td><input type='text' id='letterGradeVal' style='width: 55%'><button type=\"button\" style='margin-left: 2%' class=\"btn btn-secondary\" onclick=\"insertGrade(this)\">Submit</button></td>";
+                            temp += "<td id='title'>" + submission.assignment.title + "</td>";
+                            temp += "<td id='dueDate'>" + submission.assignment.dueDate + "</td>";
+                            temp += "<td id='submissionDate'>" + submission.submissionDate + "</td></tr>";
+                            });
+                        });
+                        document.getElementById('data').innerHTML = temp;
+                    }
+                )
+            }
+        )
+    }
+
+    function insertGrade(button) {
+        var tr = button.parentNode.parentNode;
+        var studentId = tr.querySelector('td:first-child').textContent;
+        var courseId = tr.querySelector('td:nth-child(3)').textContent;
+        var grade = document.getElementById('letterGradeVal').value;
+        const data = {
+            "studentId": studentId,
+            "courseId": courseId,
+            "letterGrade": grade
+        };
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
+
+        fetch('http://localhost:8080/insertGrade', options)
+            .then(response => {
+            })
+            .catch(error => {
+                console.error('There was a problem with your fetch operation:', error);
+            });
+    }
+
+
+</script>
+
+</body>
+
+</html>
