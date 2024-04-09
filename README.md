@@ -6,7 +6,7 @@
 Xiaoqing Zou , Daniel Christopher Sujana, Haoyang Guo
 
 ## Presentation Video
-- [] TBA
+[Youtube](https://www.youtube.com/watch?v=oG6RNOUYs-Y)
 
 ## Selected Implementation Usage
 
