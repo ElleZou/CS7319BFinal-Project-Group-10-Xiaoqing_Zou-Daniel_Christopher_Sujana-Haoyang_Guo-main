@@ -10,7 +10,42 @@ Xiaoqing Zou , Daniel Christopher Sujana, Haoyang Guo
 
 ## Selected Implementation Usage
 
-- [] TBA
+
+
+### Install JDK 21
+
+Will need to install GraalVM version or just the plain JDK 21 if not interested in native images
+
+### Unzip the project
+Unzip and run `mvnw clean package` to ensure the project compiles
+
+### Import into your IDE
+IntelliJ or VS Code will both work. Lets also cleanup some stuff that will slow us down in this demo.
+
+- Cleanup the `src/test/java`
+- Remove the testing dependencies
+- Set the version of app to `1.0`
+- Execute maven install in the IDE under maven
+
+### Run the app - Lots of choices
+
+Spring Boot makes it really easy to run your app during development and there are lots of packaging options for running in production.
+
+#### Through the IDE
+
+Using the play button from the main class - the tomcat application will run on 8080 port.
+
+#### Using Maven
+
+```
+./mvnw clean spring-boot:run
+```
+Once the application starts, use the following endpoints to access the respective portals:
+
+Professor - http://localhost:8080/professor.html
+Student - http://localhost:8080/student.html
+
+Make sure the application is connected to the SQL database and execute the DDL and insert scripts.
 
 
 ## Unselected Implementation Usage
