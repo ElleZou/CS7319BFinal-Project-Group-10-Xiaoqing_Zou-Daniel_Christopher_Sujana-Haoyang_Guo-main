@@ -6,11 +6,11 @@
 Xiaoqing Zou , Daniel Christopher Sujana, Haoyang Guo
 
 ## Presentation Video
-
+- [] TBA
 
 ## Selected Implementation Usage
 
-TBA
+- [] TBA
 
 
 ## Unselected Implementation Usage
