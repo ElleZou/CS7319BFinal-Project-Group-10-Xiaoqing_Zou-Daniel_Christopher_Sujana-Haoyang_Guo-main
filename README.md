@@ -8,7 +8,7 @@ Xiaoqing Zou , Daniel Christopher Sujana, Haoyang Guo
 ## Presentation Video
 
 
-## Selected Imlementation Usage
+## Selected Implementation Usage
 
 
 
